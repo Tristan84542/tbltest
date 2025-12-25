@@ -1,8 +1,9 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { User } from '../objects/user';
+
 import { fullUrl } from '../params/Urls';
 import { Home } from './Home.page';
 import { loadEnvFile } from 'node:process';
+import { User } from '../objects/User copy';
 
 export class Login{
     readonly page: Page;
