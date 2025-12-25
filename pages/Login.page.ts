@@ -116,18 +116,14 @@ export class Login{
         await this.page.goto(url);
         await this.page.waitForLoadState('load');
         if (await (this.rejectCookiesBtn.isVisible())){
+            console.log('Cookies overlay exist, reject optional cookies now...')
             await this.rejectCookiesBtn.click()
         }    
     }
     async login(user: User): Promise<Home> {
-        //await this.inUsername.fill(user.username);
-        //await this.inPwd.fill(user.password)
-        //Cannot use fill because the login button related to actual keyboard input
-        await this.inUsername.click();
-        await this.page.keyboard.type(user.username, {delay: 20});
-        await this.inPwd.click();
-        await this.page.keyboard.type(user.password, {delay: 20});
-        //await this.page.waitForTimeout(5000);
+        await this.inUsername.pressSequentially(user.username);
+        await this.inPwd.pressSequentially(user.password);
+        await this.page.waitForTimeout(2000); //add timeout to let element update from disable to enable
         await expect(this.loginBtn).toBeEnabled();
         await this.loginBtn.click();
         await expect(this.page).toHaveURL(fullUrl.home);
