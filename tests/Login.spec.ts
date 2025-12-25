@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 import { fullUrl } from '../params/Urls';
-import { Login } from '../pages/Login.page copy';
-import { initUser } from '../objects/User copy';
+import { Login } from '../pages/Login.page';
+import { initUser } from '../objects/User';
 
 
 

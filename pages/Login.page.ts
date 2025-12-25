@@ -1,9 +1,8 @@
 import { expect, Locator, Page } from '@playwright/test';
-
 import { fullUrl } from '../params/Urls';
 import { Home } from './Home.page';
-import { loadEnvFile } from 'node:process';
-import { User } from '../objects/User copy';
+import { User } from '../objects/User';
+
 
 export class Login{
     readonly page: Page;
@@ -110,7 +109,7 @@ export class Login{
         await expect(this.tombolaCareer).toBeVisible();
         await expect(this.regNumber).toBeVisible();
         await expect(this.sideBackground).toBeVisible();
-        await this.page.waitForTimeout(10000);
+        
     }
 
     async goto(url: string){

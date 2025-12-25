@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { User } from '../objects/user';
+import { User } from '../objects/User';
+
 export class Home{
     readonly page: Page;
     readonly addMoneyPop: Locator;
