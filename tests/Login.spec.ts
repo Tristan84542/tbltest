@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { Login } from '../pages/login.page';
+
 import { fullUrl } from '../params/Urls';
 import { initUser } from '../objects/user';
+import { Login } from '../pages/Login.page';
+
 
 
 test('Login UI test', async ({ page }) => {
