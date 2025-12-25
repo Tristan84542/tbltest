@@ -115,7 +115,9 @@ export class Login{
     async goto(url: string){
         await this.page.goto(url);
         await this.page.waitForLoadState('load');
-        await this.rejectCookiesBtn.click()
+        if (await (this.rejectCookiesBtn.isVisible())){
+            await this.rejectCookiesBtn.click()
+        }    
     }
     async login(user: User): Promise<Home> {
         //await this.inUsername.fill(user.username);
